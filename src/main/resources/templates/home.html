@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Resume</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Responsive HTML5 Resume/CV Template for Developers" />
+<meta name="author" content="Xiaoying Riley at 3rd Wave Media" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet'
+	type='text/css' />
+<link rel="stylesheet" type="text/css" href="/js/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<link rel="stylesheet" type="text/css" href="/plugins/font-awesome/css/font-awesome.css" />
+<style>
+.tree {
+	min-height: 20px;
+	padding: 19px;
+	margin-bottom: 20px;
+	background-color: #fbfbfb;
+	border: 1px solid #999;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+
+.tree li {
+	list-style-type: none;
+	margin: 0;
+	padding: 10px 5px 0 5px;
+	position: relative
+}
+
+.tree li::before, .tree li::after {
+	content: '';
+	left: -20px;
+	position: absolute;
+	right: auto
+}
+
+.tree li::before {
+	border-left: 1px solid #999;
+	bottom: 50px;
+	height: 100%;
+	top: 0;
+	width: 1px
+}
+
+.tree li::after {
+	border-top: 1px solid #999;
+	height: 20px;
+	top: 25px;
+	width: 25px
+}
+
+.tree li span {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 3px 8px;
+	text-decoration: none
+}
+
+.tree li.parent_li>span {
+	cursor: pointer
+}
+
+.tree>ul>li::before, .tree>ul>li::after {
+	border: 0
+}
+
+.tree li:last-child::before {
+	height: 30px
+}
+
+.tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span
+	{
+	background: #eee;
+	border: 1px solid #94a0b4;
+	color: #000
+}
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="sidebar-wrapper">
+			<div class="profile-container">
+				<img class="profile" alt="" />
+				<!--                 src="/images/profile.png" -->
+				<h1 class="name">Chia Fu Kuo</h1>
+				<h3 class="tagline">Web Developer</h3>
+			</div>
+
+			<div class="contact-container container-block">
+				<ul class="list-unstyled contact-list">
+					<li class="email"><i class="fa fa-envelope"></i><a href="mailto: fatfatfu@gmail.com">fatfatfu@gmail.com</a></li>
+					<li class="phone"><i class="fa fa-phone"></i><a href="tel:0955099357">0955099357</a></li>
+					<li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/chia-fu-kuo-85ab59126/" target="_blank">link</a></li>
+					<li class="github"><i class="fa fa-github"></i><a href="https://github.com/fatfatfu" target="_blank">github.com/fatfatfu</a></li>
+				</ul>
+			</div>
+			<div class="education-container container-block">
+				<h2 class="container-block-title">學歷</h2>
+				<div class="item">
+					<h4 class="degree">資訊科學</h4>
+					<h5 class="meta">政大</h5>
+					<div class="time">2005 - 2010</div>
+				</div>
+			</div>
+			<div class="languages-container container-block">
+				<h2 class="container-block-title">主要使用語言</h2>
+				<ul class="list-unstyled interests-list">
+					<li>Java <span class="lang-desc">(4-5yr)</span></li>
+					<li>Sql <span class="lang-desc">(3yr)</span></li>
+				</ul>
+			</div>
+			<div class="interests-container container-block">
+				<h2 class="container-block-title">興趣</h2>
+				<ul class="list-unstyled interests-list">
+					<li>運動</li>
+					<li>旅行</li>
+					<li>閱讀</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main-wrapper">
+			<section class="section summary-section">
+				<h2 class="section-title">
+					<i class="fa fa-user"></i>簡介
+				</h2>
+				<div class="summary">
+					<p>
+						職場上的優點是認真負責且有抗壓性。從學生時期到入伍及出社會都擔任過一些充滿壓力的職務，
+						但都盡全力的完成，相信這是和我共事過的同仁長官會對我有的評價。
+						另外有不錯的學習能力，對於新技術或不熟的業務可以很快補足且上手。
+						工作態度方面，除了基本該完成的工作，也會利用時間優化自己的code和改善工作效能。
+						閒暇時間也很樂於吸收新知學習新的技術。能勝任各種有挑戰性的工作，也熱愛挑戰性
+					</p>
+				</div>
+			</section>
+
+			<section class="section experiences-section">
+				<h2 class="section-title">
+					<i class="fa fa-briefcase"></i>工作經驗
+				</h2>
+				<div class="item">
+					<div class="meta">
+						<div class="upper-row">
+							<h3 class="job-title">襄理</h3>
+							<div class="time">2016 - Present</div>
+						</div>
+						<div class="company">中國信託 法金資訊</div>
+						<p>業務內容:</p>
+						<blockquote>
+							員工信託福儲系統各模組開發，除帳務每日結清處理外也提供後台OP上傳不同格式提存提領檔案以方便使用．另外發送電文至 <a href="https://ecorp.chinatrust.com.tw/cts/index.jsp" target="_blank">法託網銀</a>供外部使用者查詢帳務及進行交易．
+						</blockquote>
+					</div>
+					<div class="details">
+						<p>主要擔任角色</p>
+						<blockquote>SA/PG</blockquote>
+						<p>系統架構</p>
+						<div class="tree">
+							<ul>
+								<li><span><i class="icon-calendar"></i>前端</span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Javascript</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Jquery</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> HTML/CSS</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> JSP</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">後端</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Java 1.4</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Spring</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Hibernate</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Qurtz</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">DB</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Oracle</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">SCM</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> SVN</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">Report</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Crystal report</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">Server</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> websphere</span></li>
+									</ul></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="meta">
+						<div class="upper-row">
+							<h3 class="job-title">資深專員</h3>
+							<div class="time">2013 - 2016</div>
+						</div>
+						<div class="company">台北富邦銀行 法金資訊</div>
+						<p>業務內容:</p>
+						<blockquote>
+							<dl>
+								<dt>財務整合平台開發維運</dt>
+								<dd>接收銀行端各系統資料整合帳務，產製報表及介面供使用者查詢</dd>
+								<dt>報送平台開發維運</dt>
+								<dd>接收並整合銀行端帳務資料產製成法報供金管會或不同單位查詢</dd>
+								<dt>海外核心系統維運</dt>
+								<dd>維護海外核心weblogic/ bi publisher 等中介平台，及管理aix硬體</dd>
+							</dl>
+						</blockquote>
+					</div>
+					<div class="details">
+						<p>主要擔任角色</p>
+						<blockquote>PG/INFRA</blockquote>
+						<p>系統架構</p>
+						<div class="tree">
+							<ul>
+								<li><span><i class="icon-calendar"></i>前端</span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Javascript</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Jquery</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> HTML/CSS</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> JSP</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">後端</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Java 1.6</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Spring</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> ibetis</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> struts</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">DB</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Oracle</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">SCM</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> CVS</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">Report</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Ireport</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> jett</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">Server</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> websphere</span></li>
+									</ul></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="meta">
+						<div class="upper-row">
+							<h3 class="job-title">程式設計</h3>
+							<div class="time">2011 - 2013</div>
+						</div>
+						<div class="company">技專校院招生委員會 資訊處</div>
+						<p>業務內容:</p>
+						<blockquote>
+							開發各招生平台網頁供考生報名技職院校．包括 <a href="" target="_blank">二技申請</a>及繁星計畫等招生平台
+						</blockquote>
+					</div>
+					<div class="details">
+						<p>主要擔任角色</p>
+						<blockquote>PG</blockquote>
+						<p>系統架構</p>
+						<div class="tree">
+							<ul>
+								<li><span><i class="icon-calendar"></i>前端</span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Javascript</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Zk framework</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> HTML/CSS</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">後端</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Java 1.6</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Spring</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Hibernate</span></li>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> struts</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">DB</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> MS SQL</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">SCM</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> SVN</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">Report</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Itext</span></li>
+									</ul></li>
+								<li><span><i class="icon-calendar">Server</i> </span>
+									<ul>
+										<li><span class="badge badge-success"><i class="icon-minus-sign"></i> Tomcat</span></li>
+									</ul></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section projects-section">
+				<h2 class="section-title">
+					<i class="fa fa-archive"></i>Projects
+				</h2>
+				<div class="intro">
+					<p>自行開發內部系統－改進工作效能</p>
+				</div>
+				<!--//intro-->
+				<div class="item">
+					<span class="project-title"><a href="#hook">內部帳號控管</a></span> - <span class="project-tagline">
+						因前手交接帳號資訊以excel方式控管較沒效率且缺乏共享性，所以自行開發帳號控管網頁．以vert x搭配HTML5為框架將工作時需要的資訊能更有效的共享</span>
+				</div>
+				<div class="item">
+					<span class="project-title"><a href="#hook">版本控管</a></span> - <span class="project-tagline">
+						因印度顧問提供過版清單常有需手工加工，且會有資訊遺漏的狀況．所以將他們產生過版清單的流程寫成jar file搭配sql server 自動產生清單以提升工作效率</span>
+				</div>
+			</section>
+			<!--//section-->
+			<!--             <section class="skills-section section"> -->
+			<!--                 <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2> -->
+			<!--                 <div class="skillset">         -->
+			<!--                     <div class="item"> -->
+			<!--                         <h3 class="level-title">Python &amp; Django</h3> -->
+			<!--                         <div class="level-bar"> -->
+			<!--                             <div class="level-bar-inner" data-level="98%"> -->
+			<!--                             </div>                                       -->
+			<!--                         </div>//level-bar                                  -->
+			<!--                     </div>//item -->
+			<!--                     <div class="item"> -->
+			<!--                         <h3 class="level-title">Javascript &amp; jQuery</h3> -->
+			<!--                         <div class="level-bar"> -->
+			<!--                             <div class="level-bar-inner" data-level="98%"> -->
+			<!--                             </div>                                       -->
+			<!--                         </div>//level-bar                                  -->
+			<!--                     </div>//item -->
+			<!--                     <div class="item"> -->
+			<!--                         <h3 class="level-title">Angular</h3> -->
+			<!--                         <div class="level-bar"> -->
+			<!--                             <div class="level-bar-inner" data-level="98%"> -->
+			<!--                             </div>                                       -->
+			<!--                         </div>//level-bar                                  -->
+			<!--                     </div>//item -->
+			<!--                     <div class="item"> -->
+			<!--                         <h3 class="level-title">HTML5 &amp; CSS</h3> -->
+			<!--                         <div class="level-bar"> -->
+			<!--                             <div class="level-bar-inner" data-level="95%"> -->
+			<!--                             </div>                                       -->
+			<!--                         </div>//level-bar                                  -->
+			<!--                     </div>//item -->
+			<!--                     <div class="item"> -->
+			<!--                         <h3 class="level-title">Ruby on Rails</h3> -->
+			<!--                         <div class="level-bar"> -->
+			<!--                             <div class="level-bar-inner" data-level="85%"> -->
+			<!--                             </div>                                       -->
+			<!--                         </div>//level-bar                                  -->
+			<!--                     </div>//item -->
+			<!--                     <div class="item"> -->
+			<!--                         <h3 class="level-title">Sketch &amp; Photoshop</h3> -->
+			<!--                         <div class="level-bar"> -->
+			<!--                             <div class="level-bar-inner" data-level="60%"> -->
+			<!--                             </div>                                       -->
+			<!--                         </div>//level-bar                                  -->
+			<!--                     </div>//item -->
+
+			<!--                 </div>   -->
+			<!--             </section>//skills-section -->
+
+		</div>
+	</div>
+<!-- 	<footer class="footer"> -->
+<!-- 		<div class="text-center"> -->
+<!-- 		</div> -->
+<!-- 	</footer> -->
+
+	<script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
+	<script>
+		$(function() {
+			$('.tree li:has(ul)').addClass('parent_li').find(' > span').attr(
+					'title', 'Collapse this branch');
+			$('.tree li.parent_li > span').on(
+					'click',
+					function(e) {
+						var children = $(this).parent('li.parent_li').find(
+								' > ul > li');
+						if (children.is(":visible")) {
+							children.hide('fast');
+							$(this).attr('title', 'Expand this branch').find(
+									' > i').addClass('icon-plus-sign')
+									.removeClass('icon-minus-sign');
+						} else {
+							children.show('fast');
+							$(this).attr('title', 'Collapse this branch').find(
+									' > i').addClass('icon-minus-sign')
+									.removeClass('icon-plus-sign');
+						}
+						e.stopPropagation();
+					});
+		});
+	</script>
+</body>
+</html>
+
